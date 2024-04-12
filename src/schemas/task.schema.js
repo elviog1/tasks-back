@@ -11,4 +11,4 @@ export const createTaskSchema = z.object({
     .min(5, { message: "Description must be at least 5 characters" }),
   date: z.string().datetime().optional(),
   status: z.string().optional(),
-});
+}); 
