@@ -6,13 +6,13 @@ import cors from 'cors'
 import dotenv from 'dotenv';
 
 const app = express();
+dotenv.config();
 app.use(cors({
     origin: process.env.FRONT_URL,
     credentials:true
 }))
 app.use(cookieParser())
 app.use(express.json())
-dotenv.config();
 
 app.use("/api",authRoutes);
 app.use("/api",taskRoutes);
