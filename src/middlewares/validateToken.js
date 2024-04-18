@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-export const authRequired = (req, res, next) => {
+export const authRequired = async (req, res, next) => {
   try {
-    const { token } = req.cookies;
+    const { token } =await req.cookies;
     if (!token)
       return res
         .status(401)
