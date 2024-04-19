@@ -16,18 +16,7 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 
-app.use((req, res, next) => {
-  const { token } = req.cookies;
-  res.cookie("token", token, {
-    sameSite: "None",
-    secure: true,
-  });
-  next();
-});
-
 app.use("/api", authRoutes);
 app.use("/api", taskRoutes);
 
 export default app;
-
-// 1:30:40
