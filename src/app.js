@@ -9,7 +9,7 @@ const app = express();
 dotenv.config();
 app.use(
   cors({
-    origin: "*",
+    origin: process.env.FRONT_URL,
     credentials: true,
   })
 );
@@ -19,10 +19,9 @@ app.use(express.json());
 app.use((req, res, next) => {
   const { token } = req.cookies;
   res.cookie("token", token, {
-    sameSite: "none",
+    sameSite: "None",
     secure: true,
   });
-  console.log(token);
   next();
 });
 
